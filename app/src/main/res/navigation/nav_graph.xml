@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainMenuFragment">
+
+    <fragment
+        android:id="@+id/mainMenuFragment"
+        android:name="com.nalepa.projectnr2.fragments.MainMenuFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_main_menu" >
+        <action
+            android:id="@+id/action_mainMenuFragment_to_addNewNoteFragment"
+            app:destination="@id/addNewNoteFragment" />
+        <action
+            android:id="@+id/action_mainMenuFragment_to_noteDetailsFragment"
+            app:destination="@id/noteDetailsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addNewNoteFragment"
+        android:name="com.nalepa.projectnr2.fragments.AddNewNoteFragment"
+        android:label="{title}"
+        tools:layout="@layout/fragment_add_new_note" >
+        <action
+            android:id="@+id/action_addNewNoteFragment_to_mainMenuFragment"
+            app:destination="@id/mainMenuFragment" />
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument
+            android:name="item_id"
+            app:argType="integer"
+            android:defaultValue="-1" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/noteDetailsFragment"
+        android:name="com.nalepa.projectnr2.fragments.NoteDetailsFragment"
+        android:label="Note Details"
+        tools:layout="@layout/fragment_note_details" >
+        <action
+            android:id="@+id/action_noteDetailsFragment_to_addNewNoteFragment"
+            app:destination="@id/addNewNoteFragment" />
+        <argument
+            android:name="item_id"
+            app:argType="integer" />
+    </fragment>
+</navigation>
