@@ -55,7 +55,9 @@ class AddNewNoteFragment : Fragment() {
                 } else {
                     addNote()
                 }
-
+            }
+            binding.btnDel.setOnClickListener {
+                findNavController().navigateUp()
             }
         }
     }
